@@ -1,62 +1,23 @@
-# React Survey App with Redux and Tailwind CSS
+# Survey App
 
-## Overview
-
-This is a web application built using React, Redux for state management, and Tailwind CSS for styling. The app allows users to take surveys by answering a series of questions.
-
-## Project Logo
-
-![Screenshoot](https://i.ibb.co/ggQ4PKT/first.png)
-![Screenshoot](https://i.ibb.co/ngvT6zW/finish.png)
+This repository contains a survey app built with React, Tailwind CSS, Redux Toolkit, and DaysiUI.
 
 ## Features
 
-- **Survey Navigation:** Users can navigate through survey questions and select their answers.
-- **Timer:** Each question has a time limit, and users are informed about the time remaining.
-- **Finish Survey:** At the end of the survey, users can finish and submit their responses.
+- Improved code structure and organization
+- Follows best practices for React development
+- Utilizes the Redux Toolkit for state management
+- Uses Tailwind CSS for styling
+- Integrates DaysiUI for UI components
 
-## Technologies Used
+## Contributing
 
-- React
-- Redux
-- Tailwind CSS
+Contributions to this project are welcome! Feel free to submit pull requests to contribute to the development of the app.
 
-## Installation
+## License
 
-1. Clone the repository:
+This project is licensed under the MIT License. You are free to use, modify, and distribute the code.
 
-   ```bash
-   git clone https://github.com/alfin-ardian/react-survey-app.git
-   ```
+## Testing
 
-2. Change into the project directory:
-
-   ```bash
-   cd react-survey-app
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   yarn install
-   ```
-
-## Usage
-
-1. Start the development server:
-
-   ```bash
-   yarn dev
-   ```
-
-2. Open your browser and visit [http://localhost:5173/](http://localhost:5173/) to view the app.
-
-## Project Structure
-
-- **src/components:** React components used to build the UI.
-- **src/redux:** Redux actions, reducers, and store setup.
-- **src/helper:** Utility functions and helper files.
-
-## Customize
-
-Feel free to customize the app by adding more questions, modifying the styling, or extending functionality as needed. If you have any questions or suggestions, don't hesitate to contact me through email at [work@alfinardian.dev](mailto:work@alfinardian.dev).
+Currently, the testing part is pending and needs to be implemented.

@@ -9,8 +9,8 @@ const App = () => {
   const [timer, setTimer] = useState(60 * MAX_TIMER);
   const [surveyCompleted, setSurveyCompleted] = useState(false);
   const [isOptionSelected, setIsOptionSelected] = useState(false);
-  const [answer, setAnswer] = useState<string>("");
-  const [countAnswers, setCountAnswers] = useState<number>(0);
+  const [answer, setAnswer] = useState("");
+  const [countAnswers, setCountAnswers] = useState(0);
 
   const handleNextQuestion = () => {
     if (countAnswers === data.length - 1) {
@@ -35,6 +35,12 @@ const App = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleRestartSurvey = () => {
+    setSurveyCompleted(false);
+    setTimer(60 * MAX_TIMER);
+    setCountAnswers(0);
+  };
+
   return (
     <Layout>
       <div
@@ -46,7 +52,10 @@ const App = () => {
             <p className="text-2xl text-center font-bold mb-6 text-blue-900">
               Gracias por responder esta encuesta!
             </p>
-            <Button className="mt-4 bg-blue-500 hover:bg-blue-600">
+            <Button
+              onClick={handleRestartSurvey}
+              className="mt-4 bg-blue-500 hover:bg-blue-600"
+            >
               Retomar Encuesta
             </Button>
           </div>
