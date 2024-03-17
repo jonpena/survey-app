@@ -1,0 +1,127 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Esto lo aprendi de jonathan mircha. Esta Tecnica es para hacer reescalado de texto 
+   con la estrategia de fluid design para evitar las media-queries.
+
+  Configurar los valores de las variables CSS en el root dependiendo de las viwerports soportadas.
+*/
+
+:root {
+  --fluid-min-width: 370;
+  --fluid-max-width: 1440;
+  --fluid-min-size: 17;
+  --fluid-max-size: 20;
+  --fluid-min-ratio: 1.2;
+  --fluid-max-ratio: 1.33;
+
+  --fluid-screen: 100vw;
+  --fluid-bp: calc(
+    (var(--fluid-screen) - ((var(--fluid-min-width) / 16) * 1rem)) /
+      ((var(--fluid-max-width) / 16) - (var(--fluid-min-width) / 16))
+  );
+}
+
+@media screen and (min-width: 1500px) {
+  :root {
+    --fluid-screen: calc(var(--fluid-max-width) * 1px);
+  }
+}
+
+:root {
+  --fluid-min-scale-0: var(--fluid-min-ratio);
+  --fluid-min-scale-1: var(--fluid-min-scale-0) * var(--fluid-min-ratio);
+  --fluid-min-scale-2: var(--fluid-min-scale-1) * var(--fluid-min-ratio);
+  --fluid-min-scale-3: var(--fluid-min-scale-2) * var(--fluid-min-ratio);
+  --fluid-min-scale-4: var(--fluid-min-scale-3) * var(--fluid-min-ratio);
+  --fluid-min-scale-5: var(--fluid-min-scale-4) * var(--fluid-min-ratio);
+
+  --fluid-max-scale-0: var(--fluid-max-ratio);
+  --fluid-max-scale-1: var(--fluid-max-scale-0) * var(--fluid-max-ratio);
+  --fluid-max-scale-2: var(--fluid-max-scale-1) * var(--fluid-max-ratio);
+  --fluid-max-scale-3: var(--fluid-max-scale-2) * var(--fluid-max-ratio);
+  --fluid-max-scale-4: var(--fluid-max-scale-3) * var(--fluid-max-ratio);
+  --fluid-max-scale-5: var(--fluid-max-scale-4) * var(--fluid-max-ratio);
+
+  --fluid-min-size-0: (var(--fluid-min-size)) / 16;
+  --fluid-min-size-1: (var(--fluid-min-size) * var(--fluid-min-scale-0)) / 16;
+  --fluid-min-size-2: (var(--fluid-min-size) * var(--fluid-min-scale-1)) / 16;
+  --fluid-min-size-3: (var(--fluid-min-size) * var(--fluid-min-scale-2)) / 16;
+  --fluid-min-size-4: (var(--fluid-min-size) * var(--fluid-min-scale-3)) / 16;
+  --fluid-min-size-5: (var(--fluid-min-size) * var(--fluid-min-scale-4)) / 16;
+
+  --fluid-max-size-0: (var(--fluid-max-size)) / 16;
+  --fluid-max-size-1: (var(--fluid-max-size) * var(--fluid-max-scale-0)) / 16;
+  --fluid-max-size-2: (var(--fluid-max-size) * var(--fluid-max-scale-1)) / 16;
+  --fluid-max-size-3: (var(--fluid-max-size) * var(--fluid-max-scale-2)) / 16;
+  --fluid-max-size-4: (var(--fluid-max-size) * var(--fluid-max-scale-3)) / 16;
+  --fluid-max-size-5: (var(--fluid-max-size) * var(--fluid-max-scale-4)) / 16;
+
+  --size-0: calc(
+    (
+      (var(--fluid-min-size-0) * 1rem) +
+        (var(--fluid-max-size-0) - var(--fluid-min-size-0)) * var(--fluid-bp)
+    )
+  );
+
+  --size-1: calc(
+    (
+      (var(--fluid-min-size-1) * 1rem) +
+        (var(--fluid-max-size-1) - var(--fluid-min-size-1)) * var(--fluid-bp)
+    )
+  );
+
+  --size-2: calc(
+    (
+      (var(--fluid-min-size-2) * 1rem) +
+        (var(--fluid-max-size-2) - var(--fluid-min-size-2)) * var(--fluid-bp)
+    )
+  );
+  --size-3: calc(
+    (
+      (var(--fluid-min-size-3) * 1rem) +
+        (var(--fluid-max-size-3) - var(--fluid-min-size-3)) * var(--fluid-bp)
+    )
+  );
+  --size-4: calc(
+    (
+      (var(--fluid-min-size-4) * 1rem) +
+        (var(--fluid-max-size-4) - var(--fluid-min-size-4)) * var(--fluid-bp)
+    )
+  );
+  --size-5: calc(
+    (
+      (var(--fluid-min-size-5) * 1rem) +
+        (var(--fluid-max-size-5) - var(--fluid-min-size-5)) * var(--fluid-bp)
+    )
+  );
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.text-0 {
+  font-size: var(--size-0);
+}
+
+.text-1 {
+  font-size: var(--size-1);
+}
+
+.text-2 {
+  font-size: var(--size-2);
+}
+
+.text-3 {
+  font-size: var(--size-3);
+}
+
+.text-4 {
+  font-size: var(--size-4);
+}
+
+.text-5 {
+  font-size: var(--size-5);
+}
